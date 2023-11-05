@@ -346,6 +346,7 @@ CANCIONES:[
 //todos los disos que tengan 8 canciones
 
 const Cancionigual8= canciones.filter(e=>e.CANCIONES.length===8)
+console.log("Todos los discos que tengan 8 canciones: ")
 console.log(Cancionigual8)
 
 //canciones.filter(e => e.CANCIONES.length === 8)
@@ -359,6 +360,7 @@ console.log(Cancionigual8)
 
 //todos los disos que tengan mas de 10 canciones
 const mayor10= canciones.filter(e=> e.CANCIONES.length>10)
+console.log("Todos los discos que tengan mas de 10 canciones")
 console.log(mayor10)
 //canciones.filter(e=> e.CANCIONES.length > 10)
 //    .forEach(e => console.log(`
@@ -366,7 +368,8 @@ console.log(mayor10)
 //`));
 
 //seleccionar todos los discos del año 2000
-const discosanio200 = canciones.filter(e=> e.anio===1983)
+const discosanio200 = canciones.filter(e=> e.anio===2000)
+console.log("Todos los discos del anio 2000:")
 console.log(discosanio200)
 //canciones.filter(e=> e.anio === 1983)
 //    .forEach(e => console.log(`
@@ -375,6 +378,7 @@ console.log(discosanio200)
 
 //todos los discos entre el año 1982 y 1985
 const discosentre= canciones.filter(e=> e.anio>1982 && e.anio<1985)
+console.log("Todos los discos entre el anio 1982 y 1985")
 console.log(discosentre );
 //canciones.filter(e => e.anio>1982 && e.anio<1985)
 //    .forEach(e => console.log(`
@@ -399,12 +403,15 @@ for (const disco of canciones) {
     primeros10DiscosConA.push(disco);
   }
 }
-
+console.log("Los primeros 10 discos que comiencen con la letra A")
 console.log(primeros10DiscosConA);
 
 //const numeros = [1, 2, 3, 4, 5];
 //for (const numero of numeros) {
 //  console.log(numero);}
+
+
+//DISCO CON MAS CANCIONES
 let discoConMasCanciones = " ";
 let cantidadDeCanciones = 0;
 
@@ -418,7 +425,7 @@ for (const disco of canciones) {
 }
 console.log(`El disco con más canciones es "${discoConMasCanciones.Nombre}" con un total de ${cantidadDeCanciones} canciones.`);
 
-
+//EL DISCO CON MENOS CANIONES
 for (const disco of canciones) {
   const cantidadDeCancionesEnDisco = disco.CANCIONES.length;
 
@@ -434,3 +441,12 @@ const discosOrdenadosPorAnioAscendente = canciones.slice().sort((a, b) => a.anio
 
 console.log("Discos ordenados por año de manera ascendente:");
 console.log(discosOrdenadosPorAnioAscendente);
+
+
+const discosConAOrdenadosPorAnio = canciones
+  .filter(disco => disco.Nombre.toLowerCase().startsWith('a'))
+  .sort((a, b) => a.anio - b.anio)
+  .slice(0, 10); // Tomar solo los primeros 10 discos
+
+console.log("Los primeros 10 discos que comienzan con la letra 'A' y están ordenados por año:");
+console.log(discosConAOrdenadosPorAnio);
